@@ -58,9 +58,9 @@ describe UserGuardian do
         expect(guardian.can_pick_avatar?(user_avatar, users_upload)).to eq(true)
         expect(guardian.can_pick_avatar?(user_avatar, already_uploaded)).to eq(true)
 
-        UserUpload.create!(
+        UploadReference.create!(
           upload_id: not_my_upload.id,
-          user_id: not_my_upload.user_id
+          target: not_my_upload.user
         )
 
         expect(guardian.can_pick_avatar?(user_avatar, not_my_upload)).to eq(false)
@@ -68,9 +68,9 @@ describe UserGuardian do
       end
 
       it "can handle uploads that are associated but not directly owned" do
-        UserUpload.create!(
+        UploadReference.create!(
           upload_id: not_my_upload.id,
-          user_id: user_avatar.user_id
+          target: user_avatar.user
         )
 
         expect(guardian.can_pick_avatar?(user_avatar, not_my_upload))
