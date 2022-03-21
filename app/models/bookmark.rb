@@ -168,8 +168,8 @@ end
 # Table name: bookmarks
 #
 #  id                     :bigint           not null, primary key
-#  user_id                :bigint           not null
-#  post_id                :bigint           not null
+#  user_id                :integer          not null
+#  post_id                :integer          not null
 #  name                   :string(100)
 #  reminder_at            :datetime
 #  created_at             :datetime         not null
