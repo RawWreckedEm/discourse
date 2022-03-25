@@ -24,7 +24,7 @@ acceptance("User Activity / Likes - empty state", function (needs) {
     assert.ok(exists("div.alert-info"));
     assert.strictEqual(
       query("div.alert-info").innerText.trim(),
-      I18n.t("user_activity.no_likes_others")
+      I18n.t("user_activity.no_likes_others") // fixme aprig
     );
   });
 });

@@ -5,7 +5,6 @@ import { action } from "@ember/object";
 
 export default UserActivityStreamRoute.extend({
   userActionType: UserAction.TYPES["posts"],
-  emptyStateOthers: I18n.t("user_activity.no_replies_others"),
 
   emptyState() {
     const title = I18n.t("user_activity.no_replies_title");

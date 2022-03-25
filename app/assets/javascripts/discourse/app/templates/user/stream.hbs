@@ -1,11 +1,7 @@
 {{#if model.stream.noContent}}
-  {{#if model.isAnotherUsersPage}}
-    <div class="alert alert-info">{{model.emptyStateOthers}}</div>
-  {{else}}
-    <EmptyState
-      @title={{model.emptyState.title}}
-      @body={{model.emptyState.body}}
-    />
-  {{/if}}
+  <EmptyState
+    @title={{model.emptyState.title}}
+    @body={{model.emptyState.body}}
+  />
 {{/if}}
 {{user-stream stream=model.stream}}

@@ -6,7 +6,6 @@ import { action } from "@ember/object";
 
 export default UserActivityStreamRoute.extend({
   userActionType: UserAction.TYPES["likes_given"],
-  emptyStateOthers: I18n.t("user_activity.no_likes_others"),
 
   emptyState() {
     const title = I18n.t("user_activity.no_likes_title");
