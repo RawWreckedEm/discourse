@@ -7,13 +7,18 @@ export default UserActivityStreamRoute.extend({
   userActionType: null,
 
   emptyState() {
+    const user = this.modelFor("user");
+
     const title = I18n.t("user_activity.no_activity_title");
-    const body = I18n.t("user_activity.no_activity_body", {
-      topUrl: getURL("/top"),
-      categoriesUrl: getURL("/categories"),
-      preferencesUrl: getURL("/my/preferences"),
-      heartIcon: iconHTML("heart"),
-    }).htmlSafe();
+    let body = "";
+    if (this.isCurrentUser(user)) {
+      body = I18n.t("user_activity.no_activity_body", {
+        topUrl: getURL("/top"),
+        categoriesUrl: getURL("/categories"),
+        preferencesUrl: getURL("/my/preferences"),
+        heartIcon: iconHTML("heart"),
+      }).htmlSafe();
+    }
 
     return { title, body };
   },
